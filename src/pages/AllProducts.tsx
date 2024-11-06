@@ -1,8 +1,8 @@
 import { FC, useEffect, useRef, useState } from "react";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { addProducts } from "../redux/features/productSlice";
 import ProductCard from "../components/ProductCard";
 import { Product } from "../models/Product";
+import { addProducts } from "../redux/features/productSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 const AllProducts: FC = () => {
   const dispatch = useAppDispatch();
@@ -70,7 +70,7 @@ const AllProducts: FC = () => {
               <option value="desc">Price (high to low)</option>
             </select>
           </div>
-          <div className="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+          <div className="grid gap-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
             {currentProducts.map((product) => (
               <ProductCard key={product.id} {...product} />
             ))}

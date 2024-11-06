@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Product } from "../models/Product";
 import ProductCard from "../components/ProductCard";
+import { Product } from "../models/Product";
 
 const SingleCategory: FC = () => {
   const { slug } = useParams();
@@ -27,7 +27,7 @@ const SingleCategory: FC = () => {
         <span> {">"} </span>
         <span className="font-bold">{slug}</span>
       </div>
-      <div className="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 my-2">
+      <div className="grid gap-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 my-2">
         {productList?.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}

@@ -35,7 +35,7 @@ const Profile: FC = () => {
   const [info, setInfo] = useState<UserInfo>();
 
   useEffect(() => {
-    fetch("https://dummyjson.com/users/1")
+    fetch("https://dummyjson.com/users/7")
       .then((res) => res.json())
       .then((data) => {
         setInfo(data);
@@ -43,10 +43,10 @@ const Profile: FC = () => {
   }, []);
 
   return (
-    <div className="container mx-auto min-h-[83vh] w-full max-w-5xl dark:text-white">
+    <div className="container mx-auto min-h-[83vh] w-full px-6 md:px-12 dark:text-white">
       <h1 className="text-4xl p-4 font-bold font-lora">Your Account</h1>
-      <div className="font-karla grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 p-4">
-        <img src={info?.image} alt="pp" className="text-center" />
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 p-2">
+        <img src={info?.image} alt="pp" className="text-center w-2/3" />
         <table>
           <tbody>
             <tr>

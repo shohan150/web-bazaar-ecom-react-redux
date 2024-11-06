@@ -1,18 +1,18 @@
 import { FC, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useAppDispatch } from "../redux/hooks";
-import { addToCart, setCartState } from "../redux/features/cartSlice";
-import { Product } from "../models/Product";
-import RatingStar from "../components/RatingStar";
-import PriceSection from "../components/PriceSection";
 import toast from "react-hot-toast";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaHandHoldingDollar } from "react-icons/fa6";
+import { MdFavoriteBorder } from "react-icons/md";
+import { useParams } from "react-router-dom";
+import PriceSection from "../components/PriceSection";
 import ProductList from "../components/ProductList";
+import RatingStar from "../components/RatingStar";
 import Reviews from "../components/Reviews";
 import useAuth from "../hooks/useAuth";
-import { MdFavoriteBorder } from "react-icons/md";
+import { Product } from "../models/Product";
+import { addToCart, setCartState } from "../redux/features/cartSlice";
 import { addToWishlist } from "../redux/features/productSlice";
+import { useAppDispatch } from "../redux/hooks";
 
 const lorem =
   "It is important to take care of the patient, to be followed by the patient, but it will happen at such a time that there is a lot of work and pain. For to come to the smallest detail, no one should practice any kind of work unless he derives some benefit from it. Do not be angry with the pain in the reprimand in the pleasure he wants to be a hair from the pain in the hope that there is no breeding. Unless they are blinded by lust, they do not come forth; they are in fault who abandon their duties and soften their hearts, that is, their labors.";
@@ -108,8 +108,8 @@ const SingleProduct: FC = () => {
 
   return (
     <div className="container mx-auto pt-8 dark:text-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-4 font-karla">
-        <div className="space-y-2">
+      <div className="md:flex gap-3 px-2 font-karla">
+        <div className="space-y-2 w-full md:w-1/3">
           <img src={selectedImg} alt="selected" className="h-80" />
           <div className="flex space-x-1 items-center">
             {imgs &&
@@ -126,7 +126,7 @@ const SingleProduct: FC = () => {
               ))}
           </div>
         </div>
-        <div className="px-2">
+        <div className="px-2 w-full md:w-2/3">
           <h2 className="text-2xl">{product?.title}</h2>
           {product?.rating && <RatingStar rating={product?.rating} />}
           <div className="mt-1">
@@ -155,11 +155,11 @@ const SingleProduct: FC = () => {
           </table>
           <div className="mt-2">
             <h2 className="font-bold">About the product</h2>
-            <p className="leading-5">
+            <p className="leading-5 text-justify">
               {product?.description} {lorem}
             </p>
           </div>
-          <div className="flex flex-wrap items-center mt-4 mb-2 space-x-2">
+          <div className="flex flex-wrap items-center mt-4 gap-2">
             <button
               type="button"
               className="flex items-center space-x-1 mb-2 hover:bg-pink-700 text-white p-2 rounded bg-pink-500"
@@ -186,8 +186,8 @@ const SingleProduct: FC = () => {
             </button>
           </div>
         </div>
-        {product && <Reviews id={product?.id} />}
       </div>
+      {product && <Reviews id={product?.id} />}
       <hr className="mt-4" />
       <ProductList title="Similar Products" products={similar} />
       <br />

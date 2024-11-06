@@ -1,10 +1,10 @@
 import { FC, FormEvent, useState } from "react";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { doLogin, updateModal } from "../redux/features/authSlice";
 import { FaUnlock } from "react-icons/fa";
-import { RiLockPasswordFill, RiUser3Fill } from "react-icons/ri";
 import { GiArchiveRegister } from "react-icons/gi";
+import { RiLockPasswordFill, RiUser3Fill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
+import { doLogin, updateModal } from "../redux/features/authSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 const LoginModal: FC = () => {
   const [clicked, setClicked] = useState(false);
@@ -61,7 +61,7 @@ const LoginModal: FC = () => {
                   <input
                     data-test="input-username"
                     type="text"
-                    placeholder="Your username here... (atuny0)"
+                    placeholder="Type this username to login (user)"
                     className="border w-full border-black py-2 px-8 rounded dark:bg-slate-600"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -74,7 +74,7 @@ const LoginModal: FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
-                    placeholder="Your password here... (9uQFF1Lh)"
+                    placeholder="Type this password to login (12345)"
                     className="border w-full border-black py-2 px-8 rounded dark:bg-slate-600"
                   />
                   <RiLockPasswordFill className="absolute top-3 left-2 text-lg" />

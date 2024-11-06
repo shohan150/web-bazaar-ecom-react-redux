@@ -13,7 +13,7 @@ const ProductList: FC<{ title: string; products: Product[] }> = ({
       </h2>
     </div>
     <div
-      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-4"
+      className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 mt-4"
       data-test="product-list-container"
     >
       {products?.map((product) => (

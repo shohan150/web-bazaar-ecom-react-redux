@@ -30,7 +30,7 @@ const Navbar: FC = () => {
         <div className="flex justify-between items-center">
           <Link
             to="/"
-            className="text-4xl font-bold dark:text-white"
+            className="text-xl sm:text-2xl md:text-4xl font-bold dark:text-white mr-2"
             data-test="main-logo"
           >
             Web Bazaar
@@ -45,17 +45,17 @@ const Navbar: FC = () => {
               <BsSearch />
             </div>
           </div>
-          <div className="flex gap-4 md:gap-8 items-center dark:text-white">
+          <div className="flex gap-2 md:gap-8 items-center dark:text-white">
             <Link
               to="/products"
-              className="text-xl font-bold"
+              className="sm:text-lg md:text-xl font-bold"
               data-test="main-products"
             >
               Products
             </Link>
             <Link
               to="/categories"
-              className="text-xl font-bold"
+              className="sm:text-lg md:text-xl font-bold"
               data-test="main-categories"
             >
               Categories
@@ -70,7 +70,7 @@ const Navbar: FC = () => {
               ) : (
                 <FaUser className="text-gray-500 text-2xl dark:text-white" />
               )}
-              <div className="text-gray-500 text-2xl">
+              <div className="text-gray-500 text-xl md:text-2xl">
                 {username !== "" ? (
                   <CustomPopup />
                 ) : (
@@ -85,13 +85,13 @@ const Navbar: FC = () => {
               </div>
             </div>
             <div
-              className="text-gray-500 text-[32px] relative hover:cursor-pointer hover:opacity-80"
+              className="text-gray-500 text-2xl md:text-[32px] relative hover:cursor-pointer hover:opacity-80"
               onClick={showCart}
               data-test="cart-btn"
             >
               <AiOutlineShoppingCart className="dark:text-white" />
               <div
-                className="absolute top-[-15px] right-[-10px] bg-red-600 w-[25px] h-[25px] rounded-full text-white text-[14px] grid place-items-center"
+                className="absolute top-[-12px] right-[-10px] bg-red-600 w-[22px] h-[22px] rounded-full text-white text-[14px] leading-3 grid place-items-center"
                 data-test="cart-item-count"
               >
                 {cartCount}
